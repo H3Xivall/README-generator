@@ -1,0 +1,29 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "Professional README Generator through Node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h3xivall/readme-generator.git"
+  },
+  "keywords": [
+    "README",
+    "generator",
+    "readme",
+    "generator"
+  ],
+  "author": "Ryan Hanzel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/h3xivall/readme-generator/issues"
+  },
+  "homepage": "https://github.com/h3xivall/readme-generator#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "inquirer": "^8.2.4"
+  }
+}
