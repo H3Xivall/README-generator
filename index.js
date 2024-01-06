@@ -53,4 +53,42 @@ const questions = [
         name: 'email',
         message: 'Enter your email address',
     }
-]
+];
+
+inquirer.prompt(questions).then((answer) => {
+    const readMeContent = `
+    #${answer.title}
+
+    ## Description
+    ${answer.description}
+
+    ## Table of Contents
+    * [Installation](#installation)
+    * [Usage](#usage)
+    * [Contribution](#contribution)
+    * [Test](#test)
+    * [License](#license)
+    * [Questions](#questions)
+    
+    ## Installation
+    ${answer.installation}
+
+    ## Usage
+    ${answer.usage}
+
+    ## Contribution
+    ${answer.contribution}
+
+    ## Test
+    ${answer.test}
+
+    ## License
+    ${answer.license}
+
+    ## Questions
+    GitHub: [${answer.github}](https://github.com/${answer.github})
+
+    Email: [${answer.email}](mailto:${answer.email})
+
+    `
+})
