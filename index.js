@@ -90,5 +90,12 @@ inquirer.prompt(questions).then((answer) => {
 
     Email: [${answer.email}](mailto:${answer.email})
 
-    `
-})
+    `;
+    fs.writeFile('GeneratedREADME.md', readMeContent, (err) => {
+        if (err) {
+            console.log("Issues with created README file");
+        } else {
+            console.log("README file successfully created!");
+        };
+    });
+});
