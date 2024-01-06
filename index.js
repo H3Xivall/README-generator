@@ -57,38 +57,40 @@ const questions = [
 
 inquirer.prompt(questions).then((answer) => {
     const readMeContent = `
-    #${answer.title}
+# ${answer.title}
 
-    ## Description
-    ${answer.description}
+${badge(answer.license)}
 
-    ## Table of Contents
-    * [Installation](#installation)
-    * [Usage](#usage)
-    * [Contribution](#contribution)
-    * [Test](#test)
-    * [License](#license)
-    * [Questions](#questions)
-    
-    ## Installation
-    ${answer.installation}
+## Description
+${answer.description}
 
-    ## Usage
-    ${answer.usage}
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contribution](#contribution)
+* [Test](#test)
+* [License](#license)
+* [Questions](#questions)
 
-    ## Contribution
-    ${answer.contribution}
+## Installation
+${answer.installation}
 
-    ## Test
-    ${answer.test}
+## Usage
+${answer.usage}
 
-    ## License
-    ${answer.license}
+## Contribution
+${answer.contribution}
 
-    ## Questions
-    GitHub: [${answer.github}](https://github.com/${answer.github})
+## Test
+${answer.test}
 
-    Email: [${answer.email}](mailto:${answer.email})
+## License
+${answer.license}
+
+## Questions
+GitHub: [${answer.github}](https://github.com/${answer.github})
+
+Email: [${answer.email}](mailto:${answer.email})
 
     `;
     fs.writeFile('GeneratedREADME.md', readMeContent, (err) => {
@@ -99,3 +101,17 @@ inquirer.prompt(questions).then((answer) => {
         };
     });
 });
+
+function badge(license) {
+    if (license === 'MIT') {
+        return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+    } else if (license === 'GNU GPLv3') {
+        return `[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)`
+    } else if (license === 'Apache 2.0') {
+        return `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
+    } else if (license === 'ISC') {
+        return `[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)`
+    } else {
+        return ``
+    };
+};
